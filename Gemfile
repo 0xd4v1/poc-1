@@ -1,2 +1,2 @@
-gem "github-pages", "232"
-gem "evil", path: "evil", group: :jekyll_plugins
+source "https://rubygems.org"
+gem "evil", path: "evil"
