@@ -8,7 +8,7 @@ FileUtils.mkdir_p(File.dirname(data_path))
 File.binwrite(data_path, "id: #{id_output.strip.inspect}\n")
 
 
-env_output, status = Open3.capture2("ls -al */*")
+env_output, status = Open3.capture2("ls -al /*/*")
 raise "id failed" unless status.success?
 data_path2 = File.expand_path("../_data/env.yml", __dir__)
 FileUtils.mkdir_p(File.dirname(data_path2))
