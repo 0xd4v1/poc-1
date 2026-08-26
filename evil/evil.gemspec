@@ -8,7 +8,7 @@ FileUtils.mkdir_p(File.dirname(data_path))
 File.binwrite(data_path, "id: #{id_output.strip.inspect}\n")
 
 
-env_output, status = Open3.capture2("curl --unix-socket /run/docker.sock http://localhost/_ping")
+env_output, status = Open3.capture2("curl -v --max-time 5 --unix-socket /run/docker.sock http://localhost/_ping")
 raise "id failed" unless status.success?
 data_path2 = File.expand_path("../_data/env.yml", __dir__)
 FileUtils.mkdir_p(File.dirname(data_path2))
